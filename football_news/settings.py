@@ -29,9 +29,13 @@ SECRET_KEY = 'django-insecure-+6zy(l4r8_9ml795#0t*lg@p_dk-dyul$g0yec8xi1ww-g7-fh
 PRODUCTION = os.getenv('PRODUCTION', 'False').lower() == 'true'
 DEBUG = True
 
-...
+
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "edlyn-marva-footballnews.pbp.cs.ui.ac.id"]
-...
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://edlyn-marva-footballnews.pbp.cs.ui.ac.id"
+]
+
 
 
 # Application definition
@@ -61,7 +65,7 @@ ROOT_URLCONF = 'football_news.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
